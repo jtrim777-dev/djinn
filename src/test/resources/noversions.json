@@ -1,0 +1,397 @@
+[
+    {
+        "name": "device_drivers.opentrons:opentrons-lib",
+        "deps": [
+            "rainbow:urainbow-lib",
+            "runtime:runtime",
+            "shared.persistence:persistence",
+            "shared.shared:shared-shared",
+            "utils.akka:runtime-driver-lib",
+            "utils.helm:helm-jvm",
+            "utils.tls:consul-tls"
+        ]
+    },
+    {
+        "name": "utils.akka:runtime-driver-lib",
+        "deps": [
+            "utils.akka:rsystem",
+            "utils.akka:syntax",
+            "utils.tls:consul-tls",
+            "utils.helm:helm-jvm",
+            "shared.persistence:persistence",
+            "runtime:runtime"
+        ]
+    },
+    {
+        "name": "utils.akka:rsystem",
+        "deps": [
+            "utils.akka:syntax",
+            "shared.persistence:persistence",
+            "runtime:runtime-defns",
+            "runtime:runtime"
+        ]
+    },
+    {
+        "name": "runtime:runtime",
+        "deps": [
+            "runtime:runtime-core-actor"
+        ]
+    },
+    {
+        "name": "runtime:runtime-core-actor",
+        "deps": [
+            "runtime:runtime-util",
+            "shared.persistence:persistence",
+            "shared.shared_jvm:shared-jvm",
+            "utils.tls:consul-tls",
+            "utils.helm:helm-jvm"
+        ]
+    },
+    {
+        "name": "utils.helm:helm-jvm",
+        "deps": [
+            "utils.helm.http4s:helm-http4s"
+        ]
+    },
+    {
+        "name": "utils.helm.http4s:helm-http4s",
+        "deps": [
+            "utils.tls:consul-tls",
+            "utils.helm.helm:helm-interfaces",
+            "utils.helm.helm:helm-core-lib"
+        ]
+    },
+    {
+        "name": "utils.helm.helm:helm-interfaces",
+        "deps": [
+            "utils.helm.helm:helm-core-lib"
+        ]
+    },
+    {
+        "name": "utils.helm.helm:helm-core-lib",
+        "deps": [
+            "utils.helm.helm:helm-hcl",
+            "utils.helm.helm:helm-json"
+        ]
+    },
+    {
+        "name": "utils.tls:consul-tls",
+        "deps": [
+            "shared.shared_jvm:shared-jvm"
+        ]
+    },
+    {
+        "name": "shared.shared_jvm:shared-jvm",
+        "deps": [
+            "shared.shared_jvm:avro-serialization",
+            "shared.shared_jvm:native-loader",
+            "shared.shared_jvm:opentrons-json",
+            "shared.shared_jvm:scala-graph-renderer",
+            "shared.shared:shared-shared"
+        ]
+    },
+    {
+        "name": "shared.shared:shared-shared",
+        "deps": [
+            "shared.shared:AST",
+            "shared.shared:IR",
+            "shared.shared:archetype-framework",
+            "shared.shared:bioreactor",
+            "shared.shared:liquid_handler",
+            "shared.shared:opentrons",
+            "shared.shared:sensor",
+            "shared.shared:util"
+        ]
+    },
+    {
+        "name": "shared.shared:sensor",
+        "deps": [
+            "shared.shared:archetype-framework",
+            "shared.persistence:persistence"
+        ]
+    },
+    {
+        "name": "shared.shared:bioreactor",
+        "deps": [
+            "shared.shared:archetype-framework",
+            "shared.persistence:persistence"
+        ]
+    },
+    {
+        "name": "shared.shared:AST",
+        "deps": [
+            "shared.shared:IR"
+        ]
+    },
+    {
+        "name": "shared.shared:IR",
+        "deps": [
+            "shared.shared:opentrons"
+        ]
+    },
+    {
+        "name": "shared.shared_jvm:scala-graph-renderer",
+        "deps": [
+            "shared.shared:opentrons"
+        ]
+    },
+    {
+        "name": "shared.shared_jvm:opentrons-json",
+        "deps": [
+            "shared.shared:opentrons"
+        ]
+    },
+    {
+        "name": "shared.shared:opentrons",
+        "deps": [
+            "shared.shared:liquid_handler",
+            "utils.akka:syntax",
+            "shared.persistence:persistence",
+            "rainbow:rainbow-lab-lib"
+        ]
+    },
+    {
+        "name": "shared.shared:liquid_handler",
+        "deps": [
+            "shared.shared:archetype-framework",
+            "shared.persistence:persistence"
+        ]
+    },
+    {
+        "name": "shared.shared:archetype-framework",
+        "deps": [
+            "utils.akka:syntax",
+            "shared.persistence:persistence"
+        ]
+    },
+    {
+        "name": "utils.akka:syntax",
+        "deps": [
+            "shared.persistence:persistence",
+            "runtime:runtime-defns",
+            "device_drivers.opentrons:opentrons-lib"
+        ]
+    },
+    {
+        "name": "shared.persistence:persistence",
+        "deps": [
+            "shared.persistence:persistence-lib",
+            "shared.persistence:persistence-query",
+            "shared.persistence:src.main.resources.reference.conf"
+        ]
+    },
+    {
+        "name": "utils.scheduleruservice:scheduler-actor-protocol-lib",
+        "deps": [
+            "utils.scheduler:scheduler-uservice-lib"
+        ]
+    },
+    {
+        "name": "utils.scheduler:scheduler-uservice-lib",
+        "deps": [
+            "utils.scheduler:scheduler-helper-consumer-lib",
+            "utils.scheduler:scheduler-multi-lib",
+            "utils.scheduler:scheduler-uservice-messages-lib"
+        ]
+    },
+    {
+        "name": "utils.scheduler:scheduler-uservice-messages-lib",
+        "deps": [
+            "utils.scheduler:scheduler-helper-lib",
+            "utils.scheduler:scheduler-shared-lib"
+        ]
+    },
+    {
+        "name": "utils.scheduler:scheduler-multi-lib",
+        "deps": [
+            "utils.scheduler:order-scheduler-lib",
+            "utils.scheduler:parallel-scheduler-lib",
+            "utils.scheduler:scheduler-forward-backwards-lib"
+        ]
+    },
+    {
+        "name": "utils.scheduler:scheduler-forward-backwards-lib",
+        "deps": [
+            "utils.scheduler:scheduler-reverse-helper-lib"
+        ]
+    },
+    {
+        "name": "utils.scheduler:scheduler-reverse-helper-lib",
+        "deps": [
+            "utils.scheduler:scheduler-helper-consumer-lib",
+            "utils.scheduler:scheduler-helper-lib"
+        ]
+    },
+    {
+        "name": "utils.scheduler:parallel-scheduler-lib",
+        "deps": [
+            "utils.scheduler:scheduler-helper-consumer-lib",
+            "utils.scheduler:scheduler-helper-heuristics-lib",
+            "utils.scheduler:scheduler-helper-lib",
+            "utils.scheduler:scheduler-traits-lib"
+        ]
+    },
+    {
+        "name": "utils.scheduler:order-scheduler-lib",
+        "deps": [
+            "utils.scheduler:scheduler-helper-heuristics-lib",
+            "utils.scheduler:scheduler-helper-lib",
+            "utils.scheduler:scheduler-traits-lib"
+        ]
+    },
+    {
+        "name": "utils.scheduler:scheduler-traits-lib",
+        "deps": [
+            "utils.scheduler:scheduler-shared-lib",
+            "utils.scheduler:scheduler-shared-utils-lib"
+        ]
+    },
+    {
+        "name": "utils.scheduler:scheduler-helper-heuristics-lib",
+        "deps": [
+            "utils.scheduler:scheduler-shared-utils-lib",
+            "utils.scheduler:scheduler-helper-consumer-lib",
+            "utils.scheduler:scheduler-helper-lib",
+            "utils.scheduler:scheduler-shared-lib"
+        ]
+    },
+    {
+        "name": "utils.scheduler:scheduler-helper-consumer-lib",
+        "deps": [
+            "utils.scheduler:scheduler-helper-lib"
+        ]
+    },
+    {
+        "name": "utils.scheduler:scheduler-helper-lib",
+        "deps": [
+            "utils.scheduler:scheduler-resources-lib",
+            "utils.scheduler:scheduler-shared-lib",
+            "utils.scheduler:scheduler-shared-utils-lib"
+        ]
+    },
+    {
+        "name": "utils.scheduler:scheduler-shared-utils-lib",
+        "deps": [
+            "utils.scheduler:scheduler-shared-lib"
+        ]
+    },
+    {
+        "name": "utils.scheduler:scheduler-resources-lib",
+        "deps": [
+            "utils.scheduler:scheduler-resource-lib",
+            "utils.scheduler:scheduler-shared-lib"
+        ]
+    },
+    {
+        "name": "utils.scheduler:scheduler-resource-lib",
+        "deps": [
+            "utils.scheduler:scheduler-replica-lib"
+        ]
+    },
+    {
+        "name": "utils.scheduler:scheduler-replica-lib",
+        "deps": [
+            "utils.scheduler:scheduler-events-lib",
+            "utils.scheduler:scheduler-shared-lib"
+        ]
+    },
+    {
+        "name": "utils.scheduler:scheduler-shared-lib",
+        "deps": [
+            "utils.scheduler:scheduler-commontypes-lib",
+            "utils.scheduler:scheduler-time-implicits-lib"
+        ]
+    },
+    {
+        "name": "utils.scheduler:scheduler-events-lib",
+        "deps": [
+            "utils.scheduler:scheduler-commontypes-lib",
+            "utils.scheduler:scheduler-time-implicits-lib"
+        ]
+    },
+    {
+        "name": "utils.helm.helm:helm-json"
+    },
+    {
+        "name": "utils.helm.helm:helm-hcl"
+    },
+    {
+        "name": "shared.shared:util"
+    },
+    {
+        "name": "shared.shared_jvm:native-loader"
+    },
+    {
+        "name": "shared.shared_jvm:avro-serialization"
+    },
+    {
+        "name": "runtime:runtime-util"
+    },
+    {
+        "name": "runtime:runtime-defns"
+    },
+    {
+        "name": "utils.imagej:imagej"
+    },
+    {
+        "name": "shared.circe_custom_decoders:circe-custom-decoders"
+    },
+    {
+        "name": "utils.scheduler:scheduler-time-implicits-lib"
+    },
+    {
+        "name": "utils.scheduler:scheduler-commontypes-lib"
+    },
+    {
+        "name": "rainbow:rainbow-positioning-lib"
+    },
+    {
+        "name": "rainbow:rainbow-lib"
+    },
+    {
+        "name": "shared.persistence:src.main.resources.reference.conf"
+    },
+    {
+        "name": "shared.persistence:persistence-lib"
+    },
+    {
+        "name": "utils.rainbowuservice:rainbow-actor-protocol-lib",
+        "deps": [
+            "rainbow:urainbow-lib"
+        ]
+    },
+    {
+        "name": "rainbow:urainbow-lib",
+        "deps": [
+            "rainbow:rainbow-components-lib",
+            "rainbow:rainbow-lib"
+        ]
+    },
+    {
+        "name": "rainbow:rainbow-lab-lib",
+        "deps": [
+            "rainbow:rainbow-components-lib",
+            "rainbow:rainbow-lib",
+            "rainbow:rainbow-mutable-lib"
+        ]
+    },
+    {
+        "name": "rainbow:rainbow-mutable-lib",
+        "deps": [
+            "rainbow:rainbow-lib"
+        ]
+    },
+    {
+        "name": "rainbow:rainbow-components-lib",
+        "deps": [
+            "rainbow:rainbow-lib",
+            "rainbow:rainbow-positioning-lib"
+        ]
+    },
+    {
+        "name": "shared.persistence:persistence-query",
+        "deps": [
+            "shared.persistence:persistence-lib"
+        ]
+    }
+]
