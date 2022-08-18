@@ -22,7 +22,7 @@ http_archive(
 # 2.12 is a default version, other versions can be use by passing them explicitly:
 # scala_config(scala_version = "2.11.12")
 load("@io_bazel_rules_scala//:scala_config.bzl", "scala_config")
-scala_config(scala_version = "2.13.6")
+scala_config(scala_version = "2.13.7")
 
 load("@io_bazel_rules_scala//scala:scala.bzl", "scala_repositories")
 scala_repositories()
@@ -43,3 +43,27 @@ load("//3rdparty:workspace.bzl", "maven_dependencies")
 maven_dependencies()
 load("//3rdparty:target_file.bzl", "build_external_workspace")
 build_external_workspace(name = "third_party")
+
+load("//tools:bazeldist.bzl", "import_bazeldist")
+import_bazeldist()
+
+load("@bazeldist//maven:deps.bzl", "maven_artifacts_with_versions")
+load("@rules_jvm_external//:defs.bzl", "maven_install")
+maven_install(
+    artifacts = maven_artifacts_with_versions,
+    repositories = [
+        "https://repo1.maven.org/maven2",
+    ],
+    strict_visibility = True,
+    version_conflict_policy = "pinned",
+    fetch_sources = True,
+)
+
+load("@bazeldist//common:rules.bzl", "workspace_refs")
+workspace_refs(
+    name = "repo_workspace_refs"
+)
+
+load("@io_bazel_rules_kotlin//kotlin:kotlin.bzl", "kotlin_repositories", "kt_register_toolchains")
+kotlin_repositories()
+kt_register_toolchains()
